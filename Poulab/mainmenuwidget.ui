@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainMenuWidget</class>
+ <widget class="QWidget" name="MainMenuWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <widget class="QPushButton" name="museumButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>60</y>
+     <width>221</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>61</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Show Museum List</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="speciesButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>130</y>
+     <width>221</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>61</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Show Species List</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="materialTypeButton">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>30</y>
+     <width>201</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show Material Type List</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="individualButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>220</y>
+     <width>221</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show full Individual/Specimen list</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="statisticsButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>630</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Statistics</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="measurementTypeButton">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>60</y>
+     <width>201</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show full Measurement Type List</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="materialButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>250</y>
+     <width>221</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show full Material list</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="measurementButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>280</y>
+     <width>221</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show full Measurement list</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="bckg">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>700</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../background.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="searchButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>340</y>
+     <width>221</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Search</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>301</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Welcome to Poulab !&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <zorder>bckg</zorder>
+  <zorder>museumButton</zorder>
+  <zorder>speciesButton</zorder>
+  <zorder>materialTypeButton</zorder>
+  <zorder>individualButton</zorder>
+  <zorder>statisticsButton</zorder>
+  <zorder>measurementTypeButton</zorder>
+  <zorder>materialButton</zorder>
+  <zorder>measurementButton</zorder>
+  <zorder>searchButton</zorder>
+  <zorder>label</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

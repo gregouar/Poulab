@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1160</width>
+    <height>770</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PouLab</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="leftMargin">
+       <number>8</number>
+      </property>
+      <property name="topMargin">
+       <number>8</number>
+      </property>
+      <property name="rightMargin">
+       <number>8</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="backButton">
+        <property name="text">
+         <string>Back</string>
+        </property>
+        <property name="shortcut">
+         <string>Backspace</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="mainMenuButton">
+        <property name="text">
+         <string>Main Menu</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="mainLayout"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1160</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew_database"/>
+    <addaction name="actionOpen_database"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave_database_as"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose_database"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuSearch">
+    <property name="title">
+     <string>Search</string>
+    </property>
+    <addaction name="actionSearch_for"/>
+   </widget>
+   <widget class="QMenu" name="menuAdd">
+    <property name="title">
+     <string>Add</string>
+    </property>
+    <addaction name="actionIndividual"/>
+    <addaction name="actionMaterial"/>
+    <addaction name="separator"/>
+    <addaction name="actionSpecies"/>
+    <addaction name="actionMuseum"/>
+    <addaction name="separator"/>
+    <addaction name="actionMaterialType"/>
+    <addaction name="actionMeasurementType"/>
+   </widget>
+   <widget class="QMenu" name="menuSql">
+    <property name="title">
+     <string>Sql</string>
+    </property>
+    <addaction name="actionExecute_query"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuSearch"/>
+   <addaction name="menuAdd"/>
+   <addaction name="menuSql"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionOpen_database">
+   <property name="text">
+    <string>Open database</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave_database">
+   <property name="text">
+    <string>Save database</string>
+   </property>
+  </action>
+  <action name="actionNew_database">
+   <property name="text">
+    <string>New database</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionSave_database_as">
+   <property name="text">
+    <string>Save database as</string>
+   </property>
+  </action>
+  <action name="actionSearch_for">
+   <property name="text">
+    <string>Search for...</string>
+   </property>
+  </action>
+  <action name="actionIndividual">
+   <property name="text">
+    <string>Individual</string>
+   </property>
+  </action>
+  <action name="actionMaterial">
+   <property name="text">
+    <string>Material</string>
+   </property>
+  </action>
+  <action name="actionSpecies">
+   <property name="text">
+    <string>Species</string>
+   </property>
+  </action>
+  <action name="actionMuseum">
+   <property name="text">
+    <string>Museum</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionClose_database">
+   <property name="text">
+    <string>Close database</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionMaterialType">
+   <property name="text">
+    <string>MaterialType</string>
+   </property>
+  </action>
+  <action name="actionMeasurementType">
+   <property name="text">
+    <string>MeasurementType</string>
+   </property>
+  </action>
+  <action name="actionExecute_query">
+   <property name="text">
+    <string>Execute query</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
