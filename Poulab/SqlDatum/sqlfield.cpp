@@ -11,6 +11,7 @@ void SqlField::initSpecialTypeList()
         hypolist.push_back("Holotype");
         hypolist.push_back("Paratype");
         hypolist.push_back("Referred");
+        hypolist.push_back("Lectotype");
         SqlField::SPECIAL_TYPES.insert("Hypodigme",hypolist);
 
         QStringList paritylist;

@@ -155,7 +155,7 @@ void SearchWidget::addJoin(const QString &joinTableName)
     } else
         delete joinCBox;
 
-    if(joinCBox->count() <= 1)
+    if(joinCBox->count() < 1)
         ui->addJoinButton->setEnabled(false);
 
     this->updateAllTableList();

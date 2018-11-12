@@ -71,10 +71,16 @@ void FilterForm::updateTableBox(const QList<QString> &list)
 {
     if(m_tableCBox != nullptr)
     {
-        QString curTable = m_tableCBox->currentText();
+        QString curTable  = m_tableCBox->currentText();
+        int curFieldIndex = m_fieldCBox->currentIndex();
+        QVariant curValue = this->readInputValue();
+
         m_tableCBox->clear();
         m_tableCBox->addItems(list);
+
         m_tableCBox->setCurrentText(curTable);
+        m_fieldCBox->setCurrentIndex(curFieldIndex);
+        this->setInputValue(curValue);
     }
 }
 
