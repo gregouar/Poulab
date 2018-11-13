@@ -112,7 +112,13 @@ void SqlDatum::addToTableAs(int target_id) const
             if(i.value().type() == SQLFIELD_TEXT)
                 query_txt += "'"+m_fieldValueList[&i.value()].toString()+"'";
             else
-                query_txt += m_fieldValueList[&i.value()].toString();
+            {
+                QString value = m_fieldValueList[&i.value()].toString();
+                if(value.isEmpty())
+                    value = "-1";
+                query_txt += value+"";
+            }
+                //query_txt += m_fieldValueList[&i.value()].toString();
         }
 
         query_txt += " WHERE ID = "+QVariant(target_id).toString()+";";
