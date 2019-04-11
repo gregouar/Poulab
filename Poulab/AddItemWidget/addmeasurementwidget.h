@@ -25,6 +25,7 @@ private:
     bool m_disableMeasurementTypeChange;
 
     QPixmap m_img;
+    int m_precMaterialTypeID;
 };
 
 #endif // ADDMEASUREMENTWIDGET_H

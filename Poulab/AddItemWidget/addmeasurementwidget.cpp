@@ -22,6 +22,7 @@ AddMeasurementWidget::AddMeasurementWidget(const AbstractSqlTable *sqlTable, QWi
     connect(ui->measurementTypeComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(measurementTypeChanged(int)));
 
     m_disableMeasurementTypeChange = false;
+    m_precMaterialTypeID = -1;
 }
 
 AddMeasurementWidget::~AddMeasurementWidget()
@@ -46,33 +47,40 @@ void AddMeasurementWidget::materialChanged(int)
     SqlDatum materialDatum = db->getDatumFromId("Material",materialID.toInt());
     QVariant materialTypeID = materialDatum.getFieldValue("MaterialTypeID");
 
-    const SqlField *f = m_sqlTable->getSqlField("MeasurementTypeID");
 
-    QString filter = "MaterialTypeID IN isSubMaterialType";
-
-    QString with = "RECURSIVE "
-             "isSubMaterialType(n) AS ( "
-             "VALUES("+materialTypeID.toString()+") "
-             "UNION "
-             "SELECT ID FROM MaterialType, isSubMaterialType "
-             "WHERE ParentMaterialTypeID=isSubMaterialType.n "
-            ") ";
-
-    AbstractSqlListModel *lm = db->getListModel(QuickSqlQuery(f->linkName(), filter, with));
-    if(lm != nullptr)
+    m_disableMeasurementTypeChange = true;
+    if(materialTypeID.toInt() != m_precMaterialTypeID)
     {
-        lm->enableNoChoice(!f->notNull());
-        ui->measurementTypeComboBox->setModel(lm);
+        const SqlField *f = m_sqlTable->getSqlField("MeasurementTypeID");
 
-        /** FIND CURRENT SELECTED **/
-        if(m_curDatum.getID() != -1 && m_curDatum.getFieldValue("MaterialID") == materialID)
+        QString filter = "MaterialTypeID IN isSubMaterialType";
+
+        QString with = "RECURSIVE "
+                 "isSubMaterialType(n) AS ( "
+                 "VALUES("+materialTypeID.toString()+") "
+                 "UNION "
+                 "SELECT ID FROM MaterialType, isSubMaterialType "
+                 "WHERE ParentMaterialTypeID=isSubMaterialType.n "
+                ") ";
+
+        AbstractSqlListModel *lm = db->getListModel(QuickSqlQuery(f->linkName(), filter, with));
+        if(lm != nullptr)
         {
-            QComboBox *cBox = ui->measurementTypeComboBox;
+            lm->enableNoChoice(!f->notNull());
+            ui->measurementTypeComboBox->setModel(lm);
 
-            qInfo()<<m_curDatum.getFieldValue("MeasurementTypeID");
-            cBox->setCurrentIndex(cBox->findData(m_curDatum.getFieldValue("MeasurementTypeID")));
+            /** FIND CURRENT SELECTED **/
+            if(m_curDatum.getID() != -1 && m_curDatum.getFieldValue("MaterialID") == materialID)
+            {
+                QComboBox *cBox = ui->measurementTypeComboBox;
+
+                qInfo()<<m_curDatum.getFieldValue("MeasurementTypeID");
+                cBox->setCurrentIndex(cBox->findData(m_curDatum.getFieldValue("MeasurementTypeID")));
+            }
         }
+        m_precMaterialTypeID = materialTypeID.toInt();
     }
+    m_disableMeasurementTypeChange = false;
 
 }
 
