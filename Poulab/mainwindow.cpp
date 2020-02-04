@@ -321,6 +321,7 @@ void MainWindow::addToHistory(WIDGET_NAME name, const QString &text, int value)
     h.value = value;
 
     bool add = true;
+    if(!m_historyStack.isEmpty())
     if(m_historyStack.back().name == h.name)
     if(m_historyStack.back().value == h.value)
     if(m_historyStack.back().text == h.text)
@@ -329,10 +330,7 @@ void MainWindow::addToHistory(WIDGET_NAME name, const QString &text, int value)
     if(add)
        m_historyStack.push_back(h);
 
-    if(m_historyStack.size() > 1)
-        ui->backButton->setEnabled(true);
-    else
-        ui->backButton->setEnabled(false);
+    ui->backButton->setEnabled(m_historyStack.size() > 1);
 }
 
 void MainWindow::showBack()
@@ -410,16 +408,19 @@ void MainWindow::disableEverything()
     ui->menuAdd->setEnabled(false);
     ui->menuSql->setEnabled(false);
     ui->actionSave_database_as->setEnabled(false);
+    ui->backButton->setEnabled(false);
 }
 
 void MainWindow::restart()
-{
+{  
+    m_historyStack = QStack<HistoryAction> ();
     showMainMenu();
     m_mainMenu->setEnabled(true);
     ui->menuSearch->setEnabled(true);
     ui->menuAdd->setEnabled(true);
     ui->menuSql->setEnabled(true);
     ui->actionSave_database_as->setEnabled(true);
+    ui->backButton->setEnabled(false);
 }
 
 void MainWindow::connectedToDb(bool b)

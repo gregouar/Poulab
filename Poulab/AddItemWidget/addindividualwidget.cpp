@@ -13,6 +13,9 @@ AddIndividualWidget::AddIndividualWidget(const AbstractSqlTable *sqlTable, QWidg
     m_inputsList.insert("SpeciesID", ui->speciesComboBox);
     m_inputsList.insert("MuseumID", ui->museumComboBox);
     m_inputsList.insert("Hypodigme", ui->hypodigmeComboBox);
+    m_inputsList.insert("InventoryNumber", ui->inventoryNumberLineEdit);
+    m_inputsList.insert("Maturity", ui->maturityComboBox);
+    m_inputsList.insert("Thanatocoenosis", ui->thanatoComboBox);
 }
 
 AddIndividualWidget::~AddIndividualWidget()

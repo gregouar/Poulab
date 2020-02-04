@@ -84,6 +84,10 @@ QVariant IndividualTableModel::generateStoredValue(const SqlDatum *datum, int co
 
         case 4:
         {
+            auto invNbr = datum->getFieldValue("InventoryNumber");
+            if(!invNbr.isNull())
+                return invNbr;
+
             QSqlQuery query;
             query.exec("SELECT InventoryNumber FROM Material WHERE IndividualID = "+QVariant(datum->getID()).toString()+";");
             QString s;
@@ -94,7 +98,7 @@ QVariant IndividualTableModel::generateStoredValue(const SqlDatum *datum, int co
                 s += query.value(0).toString();
                 first = false;
             }
-            return s;
+            return "Materials: "+s;
         }
         break;
 

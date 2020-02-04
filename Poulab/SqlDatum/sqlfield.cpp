@@ -25,6 +25,21 @@ void SqlField::initSpecialTypeList()
         complist.push_back("Partial");
         SqlField::SPECIAL_TYPES.insert("Completeness",complist);
 
+        QStringList maturitylist;
+        maturitylist.push_back("--Unknown--");
+        maturitylist.push_back("Hatcheling");
+        maturitylist.push_back("Juvenile");
+        maturitylist.push_back("Adult");
+        SqlField::SPECIAL_TYPES.insert("Maturity",maturitylist);
+
+        QStringList thanatolist;
+        thanatolist.push_back("--Unknown--");
+        thanatolist.push_back("Pelagic");
+        thanatolist.push_back("Marine/Coastal");
+        thanatolist.push_back("Aquatic/Amphibious");
+        thanatolist.push_back("Terrestrial");
+        SqlField::SPECIAL_TYPES.insert("Thanatocoenosis",thanatolist);
+
 
         SqlField::INIT_SPECIAL_TYPES = true;
     }
