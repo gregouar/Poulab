@@ -85,7 +85,7 @@ QVariant IndividualTableModel::generateStoredValue(const SqlDatum *datum, int co
         case 4:
         {
             auto invNbr = datum->getFieldValue("InventoryNumber");
-            if(!invNbr.isNull())
+            if(!invNbr.isNull() && !invNbr.toString().isEmpty())
                 return invNbr;
 
             QSqlQuery query;
