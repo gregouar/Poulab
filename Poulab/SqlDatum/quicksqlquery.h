@@ -16,13 +16,13 @@ public:
                   const QString &with = "",
                   const QString &join = "");
 
-    QSqlQuery generateSelectQuery(const QString &sorterField = "") const;
+    QSqlQuery generateSelectQuery(const QString &sorterField = "", bool distinct = false) const;
     QSqlQuery generateCountQuery(const QString &sorterField = "") const;
 
     const QString &tableName() const;
 
 protected:
-    QSqlQuery generateQuery(const QString &sorterField = "",bool count = false) const;
+    QSqlQuery generateQuery(const QString &sorterField = "", bool distinct = false, bool count = false) const;
 
 private:
     QString m_tableName;

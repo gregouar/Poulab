@@ -187,7 +187,7 @@ void AbstractSqlTable::readTable(const QuickSqlQuery &quickquery)
 
    QString sorterField = this->retrieveSorterField();
 
-   QSqlQuery query = quickquery.generateSelectQuery(sorterField);
+   QSqlQuery query = quickquery.generateSelectQuery(sorterField, true);
    m_lastQuery = query.lastQuery();
    qInfo()<<m_lastQuery;
 

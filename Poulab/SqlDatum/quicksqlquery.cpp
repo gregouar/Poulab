@@ -13,30 +13,34 @@ QuickSqlQuery::QuickSqlQuery(const QString &tableName,
     m_join = join;
 }
 
-QSqlQuery QuickSqlQuery::generateSelectQuery(const QString &sorterField) const
+QSqlQuery QuickSqlQuery::generateSelectQuery(const QString &sorterField, bool distinct) const
 {
-    return generateQuery(sorterField);
+    return generateQuery(sorterField,distinct);
 }
 
 QSqlQuery QuickSqlQuery::generateCountQuery(const QString &sorterField) const
 {
-    return generateQuery(sorterField,true);
+    return generateQuery(sorterField,true,true);
 }
 
 
-QSqlQuery QuickSqlQuery::generateQuery(const QString &sorterField, bool count) const
+QSqlQuery QuickSqlQuery::generateQuery(const QString &sorterField, bool distinct, bool count) const
 {
     QString query_txt;
 
     if(!m_with.isEmpty())
         query_txt += " WITH " + m_with + " ";
 
-    query_txt += "SELECT DISTINCT ";
-    //query_txt += count ? " count(*) " : " * ";
-
-    if(count) query_txt += "count(";
-    query_txt += m_tableName+".* ";
-    if(count) query_txt += ")";
+    if(distinct)
+    {
+        query_txt += "SELECT DISTINCT ";
+        if(count) query_txt += "count(";
+        query_txt += m_tableName+".* ";
+        if(count) query_txt += ")";
+    } else {
+        query_txt += "SELECT ";
+        query_txt += count ? " count(*) " : " * ";
+    }
 
     query_txt+= "FROM "+m_tableName;
 
