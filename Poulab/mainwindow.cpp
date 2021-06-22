@@ -181,7 +181,7 @@ void MainWindow::showSearchList(const QuickSqlQuery& quickquery)
 
     if(!m_curTableName.isEmpty())
     {
-        QString title = "List of "+m_curTableName;
+        QString title = "List of "+m_curTableName+"s";
 
         if(m_curParentID != -1 && !m_curParentTableName.isEmpty())
              title += " in "+m_dbManager.getItemListName(m_curParentTableName, m_curParentID);

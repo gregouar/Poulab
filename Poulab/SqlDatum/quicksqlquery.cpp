@@ -31,8 +31,13 @@ QSqlQuery QuickSqlQuery::generateQuery(const QString &sorterField, bool count) c
     if(!m_with.isEmpty())
         query_txt += " WITH " + m_with + " ";
 
-    query_txt += "SELECT";
-    query_txt += count ? " count(*) " : " * ";
+    query_txt += "SELECT DISTINCT ";
+    //query_txt += count ? " count(*) " : " * ";
+
+    if(count) query_txt += "count(";
+    query_txt += m_tableName+".* ";
+    if(count) query_txt += ")";
+
     query_txt+= "FROM "+m_tableName;
 
     if(!m_join.isEmpty())
