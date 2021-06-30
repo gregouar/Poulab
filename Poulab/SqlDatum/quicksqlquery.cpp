@@ -20,7 +20,7 @@ QSqlQuery QuickSqlQuery::generateSelectQuery(const QString &sorterField, bool di
 
 QSqlQuery QuickSqlQuery::generateCountQuery(const QString &sorterField) const
 {
-    return generateQuery(sorterField,true,true);
+    return generateQuery(sorterField,false,true);
 }
 
 
@@ -33,10 +33,14 @@ QSqlQuery QuickSqlQuery::generateQuery(const QString &sorterField, bool distinct
 
     if(distinct)
     {
-        query_txt += "SELECT DISTINCT ";
+       /* query_txt += "SELECT DISTINCT ";
         if(count) query_txt += "count(";
         query_txt += m_tableName+".* ";
-        if(count) query_txt += ")";
+        if(count) query_txt += ")";*/
+        if(count)
+            query_txt += "SELECT COUNT(DISTINCT " + m_tableName+".*) ";
+        else
+            query_txt += "SELECT DISTINCT " + m_tableName+".* ";
     } else {
         query_txt += "SELECT ";
         query_txt += count ? " count(*) " : " * ";
